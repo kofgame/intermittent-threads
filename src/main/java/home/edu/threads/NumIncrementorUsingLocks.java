@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Created by Andrey on 5/20/2020.
  */
-public class NumIncrementor {
+public class NumIncrementorUsingLocks {
 
     public static void main(String[] args) {
         Incrementor incrementor = new Incrementor();
