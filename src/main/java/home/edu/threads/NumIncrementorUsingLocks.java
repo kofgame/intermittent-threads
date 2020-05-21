@@ -22,15 +22,20 @@ public class NumIncrementorUsingLocks {
 
         @Override
         public void run() {
-            while ( counter < 2) {
-                incrementCounter();
+            while ( counter < 20) {
+                try {
+                    incrementCounter();
+                } catch (InterruptedException e) {
+                    System.out.println(e.getLocalizedMessage());
+                }
             }
         }
 
-        public void incrementCounter() {
+        public void incrementCounter() throws InterruptedException {
             counterLock.lock();
             System.out.println(Thread.currentThread().getName() + "   " + counter);
             counter++;
+//            Thread.sleep(1000);
             counterLock.unlock();
         }
 
